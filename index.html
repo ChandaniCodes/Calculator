@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculator</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		.outerDiv{
+			height: 100vh;
+			width: 100%;
+		}
+		.innerDiv{
+			height: 350px;
+			width: 250px;
+			background: #aaa;
+		}
+		input{
+			height: 30px;
+			width: 230px;
+			text-align: right;
+		}
+		button{
+			margin-right: 5px;
+			margin-left: 5px;
+			margin-top: 20px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="outerDiv" align="center">
+		<div align="center" class="innerDiv" > 
+			
+			<input type="text" id="txtbox" disabled>
+			<button onclick="clr_all();">c</button>
+			<button onclick="clr_ch();">x</button>
+			<button onclick="calcul('**');">^</button>
+			<button onclick="calcul('%');">%</button><br>
+
+			<button onclick="calcul('1');">1</button>
+			<button onclick="calcul('2');">2</button>
+			<button onclick="calcul('3');">3</button>
+			<button onclick="calcul('+');">+</button><br>
+
+			<button onclick="calcul('4');">4</button>
+			<button onclick="calcul('5');">5</button>
+			<button onclick="calcul('6');">6</button>
+			<button onclick="calcul('/');">/</button><br>
+
+			<button onclick="calcul('7');">7</button>
+			<button onclick="calcul('8');">8</button>
+			<button onclick="calcul('9');">9</button>
+			<button onclick="calcul('-');">-</button><br>
+			
+			<button onclick="calcul('.');">.</button>
+			<button onclick="calcul('0');">0</button>	
+			<button onclick="result();">=</button>
+			<button onclick="calcul('*');">*</button><br>			
+		</div>
+	</div>	
+	<script>
+		function calcul(num){
+
+			//take value from input field
+			a = $("#txtbox").val();
+
+			//check if operator is **
+			if(num == '**')
+				$("#txtbox").val(a + '^');
+			else			
+				$("#txtbox").val(a + num);
+
+			//$("#txtbox").val(val() + num);
+			 
+		}
+		
+		function result(){
+
+			//take expression from input field
+			x = $("#txtbox").val();
+
+			//replace ^ to **
+			exp = x.replace('^','**'); 
+
+			// evaluating expression 
+			y = eval(exp); 
+
+			//displaying result in input field			
+			$("#txtbox").val(y); 
+		}
+
+		function clr_all(){
+			$("#txtbox").val(" ");
+		}
+
+		function clr_ch(){
+
+			str = $("#txtbox").val();
+
+			//remove last character 
+			$("#txtbox").val(str.slice(0,-1));
+		}
+	</script>
+</body>
+</html>
