@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CALCULATOR</title>
+	<style> 
+		.calculatorBox{
+			height: 450px;
+			width: 350px;
+			border-radius: 5px;
+			margin-left: 300px;
+			padding-left: 10px;
+			background-color: #efeff5;
+		}
+		.input-style{
+			height: 50px;
+			width: 300px;
+			margin-left: 10px;
+			margin-right: 10px;
+			font-size: 20px;
+		}
+		button{
+			margin-left: 20px;
+			margin-bottom:  20px;
+			height: 50px;
+			width: 50px;
+			background-color: #000;
+			color: #fff;
+			font-size: 20px;
+			border:transparent;
+			box-shadow: 0px 0px 5px #000;
+		}
+		.btn-style{
+			margin-left: 20px;
+			margin-bottom:  20px;
+			height: 50px;
+			width: 270px;
+			background-color: #000;
+			color: #fff;
+			font-size: 20px;
+			border:transparent;
+			box-shadow: 0px 0px 5px #000;
+		}
+	</style>
+	<script>
+
+		function disp(x){
+			 document.getElementById("getNumber").value += x;	
+		}
+
+		function calculateResult(){
+			var a = document.getElementById("getNumber").value ;
+			var b = eval(a);
+			document.getElementById("getNumber").value = b;	
+		}
+		function clr_scr(){
+			document.getElementById("getNumber").value = "";	
+		}
+
+	</script>
+</head>
+<body> 
+	<div  class="calculatorBox">
+		<br>
+		<input id="getNumber" class="input-style" type="text" disabled>
+		<br><br><br>
+		<button onclick="disp(1);">1</button>
+		<button onclick="disp(2);">2</button>
+		<button onclick="disp(3);">3</button>
+		<button onclick="disp('+');">+</button>
+		<br>
+		<button onclick="disp(4);">4</button>
+		<button onclick="disp(5);">5</button>
+		<button onclick="disp(6);">6</button>
+		<button onclick="disp('-');">-</button>
+		<br>
+		<button onclick="disp(7);">7</button>
+		<button onclick="disp(8);">8</button>
+		<button onclick="disp(9);">9</button>
+		<button onclick="disp('/');">/</button>
+		<br>
+		<button onclick="disp('.');">.</button>
+		<button onclick="disp(0);">0</button>
+		<button onclick="calculateResult();">=</button>
+		<button onclick="disp('*');">*</button>
+		<br>
+		<button class="btn-style" onclick="clr_scr();">Clear All</button>
+	</div>
+</body>
+</html>
